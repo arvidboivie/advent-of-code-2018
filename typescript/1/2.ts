@@ -4,16 +4,16 @@ import { getInput } from '../input.reader';
   const input = await getInput();
 
   let total = 0;
-  const seen: number[] = [];
+  const seen: any = {};
 
   whileLoop: while (true) {
     for (const current of input) {
       total = total + current;
-      if (seen.indexOf(total) !== -1) {
+      if (seen[total] === true) {
         console.log(total);
         break whileLoop;
       }
-      seen.push(total);
+      seen[total] = true;
     }
   }
 })();
